@@ -4,6 +4,8 @@ from pandas import concat
 import numpy as np
 from matplotlib import pyplot
 import matplotlib.pyplot as plt
+# 增加带交互的数据点悬停提示
+import mplcursors
 
 def parser(x):
     dt_index = pd.to_datetime(x, format="%Y-%m-%d %H:%M:%S")
@@ -45,14 +47,18 @@ plt.figure(figsize=(10,6))
 X_full = np.arange(len(series)).reshape(-1, 1)
 
 # t+1 trend
-plt.plot(series.index, series.values, label='t+1 trend', linestyle='-')
+plt.plot(series.index, series.values, marker='o', label='t+1 trend', linestyle='-')
 
 # ma trend（去NaN）
-plt.plot(series.index, window.mean(), label='ma trend', linestyle='--')
+plt.plot(series.index, window.mean(), marker='o', label='ma trend', linestyle='--')
 
 # weighted_ma trend（去NaN）
-plt.plot(series.index, weighted_ma_series, label='weighted_ma trend', linestyle=':')
+plt.plot(series.index, weighted_ma_series, marker='o', label='weighted_ma trend', linestyle=':')
 
 plt.legend()
+
+
+mplcursors.cursor(hover=True)
+
 pyplot.show()
 
