@@ -4,8 +4,10 @@ import statsmodels.api as sm
 from sklearn.metrics import mean_squared_error
 
 def parser(x):
+	# 格式化DatetimeIndex
 	return pd.to_datetime('190'+x, format='%Y-%m')
 
+# 读取csv数据
 df = pd.read_csv('shampoo-sales.csv', header=0, index_col=0, date_parser=parser)
 indx = df.index
 vals = [df.iloc[i, 0] for i in range(len(indx))]

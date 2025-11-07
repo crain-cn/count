@@ -81,11 +81,11 @@ def download_full_klines(symbol, interval, start, end=None, save_to=None, req_in
 
 
 def get_start_end_pairs(start, end, interval):
-    start_dt = datetime.strptime(start, "%Y-%m-%d")
+    start_dt = datetime.strptime(start, "%Y-%m-%d %H:%M:%S")
     if end is None:
         end_dt = datetime.now()
     else:
-        end_dt = datetime.strptime(end, "%Y-%m-%d")
+        end_dt = datetime.strptime(end, "%Y-%m-%d %H:%M:%S")
     start_dt_ts = int(time.mktime(start_dt.timetuple()))
     end_dt_ts = int(time.mktime(end_dt.timetuple()))
 
@@ -107,5 +107,5 @@ def interval_to_seconds(interval):
 
 if __name__ == '__main__':
     symbols = get_support_symbols()
-    download_full_klines(symbol="BTC/USDT", interval="15m", start="2025-11-01", end="2025-11-02",
+    download_full_klines(symbol="BTC/USDT", interval="1m", start="2025-11-01 00:00:00", end="2025-11-01 23:59:00",
                          save_to="path_to_file.csv")
