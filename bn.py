@@ -107,5 +107,5 @@ def interval_to_seconds(interval):
 
 if __name__ == '__main__':
     symbols = get_support_symbols()
-    download_full_klines(symbol="BTC/USDT", interval="1m", start="2025-11-01 00:00:00", end="2025-11-01 23:59:00",
+    download_full_klines(symbol="BNB/USDT", interval="1m", start="2025-11-06 00:00:00", end="2025-11-06 23:59:00",
                          save_to="path_to_file.csv")
