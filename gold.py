@@ -2,7 +2,7 @@ import yfinance as yf
 
 # 下载黄金ETF（GLD）的全部历史数据
 gold = yf.Ticker("GLD")
-hist = gold.history(period="2mo")
+hist = gold.history(period="3mo")
 
 # 保存至 gold.csv
 hist.to_csv("gold.csv")
